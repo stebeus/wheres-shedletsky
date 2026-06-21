@@ -84,7 +84,6 @@
 				"useDefaultSwitchClause": "error",
 				"useDestructuring": "error",
 				"useForOf": "error",
-				"useNodeAssertStrict": "error",
 				"useNumericSeparators": "error",
 				"useObjectSpread": "error",
 				"useShorthandAssign": "error",
