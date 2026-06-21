@@ -13,6 +13,7 @@ const dbUrlRegex = /(postgres(?:ql)?):\/\/(?:([^@\s]+)@)?([^/\s]+)(?:\/(\w+))?(?
 const schema = z.object({
 	CLIENT_URL: z.url().default('*'),
 	DATABASE_URL: z.url().regex(dbUrlRegex),
+	JWT_SECRET: z.string(),
 	PORT: z.int().default(3000),
 });
 
