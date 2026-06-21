@@ -14,7 +14,7 @@ const schema = z.object({
 	CLIENT_URL: z.url().default('*'),
 	DATABASE_URL: z.url().regex(dbUrlRegex),
 	JWT_SECRET: z.string(),
-	PORT: z.int().default(3000),
+	PORT: z.coerce.number().default(3000),
 });
 
 const { data, error, success } = z.safeParse(schema, env);
