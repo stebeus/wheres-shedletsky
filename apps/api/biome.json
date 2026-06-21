@@ -1,0 +1,16 @@
+{
+	"extends": "//",
+	"linter": {
+		"rules": {
+			"correctness": {
+				"noUnusedFunctionParameters": "off"
+			},
+			"style": {
+				"noProcessEnv": "error"
+			},
+			"suspicious": {
+				"noConsole": "error"
+			}
+		}
+	}
+}
