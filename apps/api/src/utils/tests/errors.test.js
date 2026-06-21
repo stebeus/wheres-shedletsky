@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { HttpError, isHttpError } from './errors.js';
+import { HttpError, isHttpError } from '#root/utils/errors.js';
 
 describe('isHttpError', () => {
 	it('confirms that it is not an HTTP error', () => {
