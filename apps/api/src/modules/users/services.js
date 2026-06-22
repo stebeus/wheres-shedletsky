@@ -12,3 +12,5 @@ export const findUser = async (username) => {
 	const [user] = await db.select().from(users).where(eq(users.username, username)).limit(1);
 	return user;
 };
+
+export const isUsernameAvailable = async (username) => (await findUser(username)) == null;

@@ -2,12 +2,10 @@ import * as z from 'zod';
 
 import { users } from '#root/db/schema.js';
 
-import { findUser } from './services.js';
+import { isUsernameAvailable } from './services.js';
 
 const { username } = users;
 const alphanumericRegex = /\w/g;
-
-const isUsernameTaken = async (username) => (await findUser(username)) == null;
 
 export const body = z.object({
 	username: z
@@ -15,7 +13,7 @@ export const body = z.object({
 		.min(1, 'Field is required')
 		.max(username.length, `Username cannot be longer than ${username.length} characters`)
 		.regex(alphanumericRegex, 'Username must only contain alphanumeric characters')
-		.refine(isUsernameTaken, 'Username is already taken'),
+		.refine(isUsernameAvailable, 'Username is already taken'),
 	password: z
 		.string()
 		.min(4, 'Password must be at least 4 characters long')
