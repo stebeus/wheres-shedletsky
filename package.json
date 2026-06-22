@@ -2,8 +2,7 @@
 	"name": "wheres-shedletsky",
 	"private": true,
 	"scripts": {
-		"lint": "biome check --fix --reporter=concise",
-		"test": "vitest"
+		"lint": "biome check --fix --reporter=concise"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.5.0",
