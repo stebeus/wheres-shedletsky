@@ -1,8 +1,8 @@
 import * as z from 'zod';
 
-const positionRegex = /[0-9]+,[0-9]+/g;
+const split = (value) => value.split(',');
 
 export const query = z.object({
 	name: z.string(),
-	position: z.string().regex(positionRegex),
+	position: z.transform(split).pipe(z.tuple([z.coerce.number(), z.coerce.number()])),
 });
