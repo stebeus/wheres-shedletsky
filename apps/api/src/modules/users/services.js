@@ -13,4 +13,7 @@ export const findUser = async (username) => {
 	return user;
 };
 
+export const updateUser = async (bestTimeInMs, username) =>
+	await db.update(users).set({ bestTimeInMs }).where(eq(users.username, username)).returning();
+
 export const isUsernameAvailable = async (username) => (await findUser(username)) == null;
