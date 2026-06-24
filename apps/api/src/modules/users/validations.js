@@ -10,7 +10,7 @@ const alphanumericRegex = /\w/g;
 export const body = z.object({
 	username: z
 		.string()
-		.min(1, 'Field is required')
+		.min(1, 'Username is required')
 		.max(username.length, `Username cannot be longer than ${username.length} characters`)
 		.regex(alphanumericRegex, 'Username must only contain alphanumeric characters')
 		.refine(isUsernameAvailable, 'Username is already taken'),
