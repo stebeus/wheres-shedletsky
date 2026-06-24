@@ -47,12 +47,12 @@ describe('GET /users/sign-in', () => {
 		expect(body.error).toBe('Invalid credentials');
 	});
 
-	it('creates a JWT for the user', async () => {
+	it('retrieves an updated user', async () => {
 		const { status, body } = await supertest(app)
 			.post(`${URL}/sign-in`)
-			.send({ username: 'john_doe', password: '1357' });
+			.send({ username: 'john_doe', password: '1357', bestTimeInMs: 1000 });
 
 		expect(status).toBe(201);
-		expect(body.token).toBeDefined();
+		expect(body.data.id).toBeDefined();
 	});
 });
