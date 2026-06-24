@@ -7,7 +7,11 @@ import { isUsernameAvailable } from './services.js';
 const { username } = users;
 const alphanumericRegex = /\w/g;
 
-export const body = z.object({
+export const signinBody = z.looseObject({
+	bestTimeInMs: z.coerce.number(),
+});
+
+export const signupBody = z.object({
 	username: z
 		.string()
 		.min(1, 'Username is required')
@@ -18,5 +22,5 @@ export const body = z.object({
 		.string()
 		.min(4, 'Password must be at least 4 characters long')
 		.max(100, 'Password cannot be longer than 100 characters'),
-	bestTimeInMs: z.coerce.number(),
+	...signinBody.shape,
 });

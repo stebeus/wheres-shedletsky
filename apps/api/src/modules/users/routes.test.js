@@ -41,7 +41,7 @@ describe('GET /users/sign-in', () => {
 	it('rejects invalid form data', async () => {
 		const { status, body } = await supertest(app)
 			.post(`${URL}/sign-in`)
-			.send({ username: 'john_doe', password: '2467' });
+			.send({ username: 'john_doe', password: '2467', bestTimeInMs: 1000 });
 
 		expect(status).toBe(400);
 		expect(body.error).toBe('Invalid credentials');
