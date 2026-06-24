@@ -1,5 +1,5 @@
 {
-	"name": "wheres-shedletsky",
+	"name": "wheres-builderman",
 	"private": true,
 	"scripts": {
 		"lint": "biome check --fix --reporter=concise"
