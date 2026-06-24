@@ -62,9 +62,6 @@
 			"performance": {
 				"noAwaitInLoops": "error"
 			},
-			"security": {
-				"preset": "all"
-			},
 			"style": {
 				"noCommonJs": "error",
 				"noDefaultExport": "error",
