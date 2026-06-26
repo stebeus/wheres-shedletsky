@@ -1,5 +1,5 @@
 {
-	"$schema": "https://biomejs.dev/schemas/2.5.0/schema.json",
+	"$schema": "https://biomejs.dev/schemas/2.5.1/schema.json",
 	"assist": {
 		"enabled": true,
 		"actions": {
@@ -64,7 +64,6 @@
 			},
 			"style": {
 				"noCommonJs": "error",
-				"noDefaultExport": "error",
 				"noExportedImports": "error",
 				"noNegationElse": "error",
 				"noNestedTernary": "error",
@@ -81,6 +80,7 @@
 				"useDefaultSwitchClause": "error",
 				"useDestructuring": "error",
 				"useForOf": "error",
+				"useNodeAssertStrict": "error",
 				"useNumericSeparators": "error",
 				"useObjectSpread": "error",
 				"useShorthandAssign": "error",
@@ -123,11 +123,12 @@
 	"overrides": [
 		{
 			"assist": { "actions": { "source": { "useSortedKeys": "off" } } },
-			"includes": ["**/*.{js,jsx,ts,tsx}", "**/package.json", "!**/*.config.{js,ts}", "!**/lib/**"]
-		},
-		{
-			"includes": ["**/*.config.{js,ts}"],
-			"linter": { "rules": { "style": { "noDefaultExport": "off" } } }
+			"includes": [
+				"**/*.{js,jsx,ts,tsx}",
+				"**/package.json",
+				"!**/*.config.{js,ts}",
+				"!**/libraries/**"
+			]
 		}
 	],
 	"vcs": {
