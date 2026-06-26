@@ -1,12 +1,12 @@
 import { Router } from 'express';
 
-import { getMany, signIn, signUp } from './handlers.js';
+import { get, postSignIn, postSignUp } from './handlers.js';
 
 const router = Router();
 
-router.get('/', getMany);
+router.get('/', get);
 
-router.post('/sign-in', signIn);
-router.post('/sign-up', signUp);
+router.post('/sign-in', postSignIn);
+router.post('/sign-up', postSignUp);
 
-export { router as users };
+export { router as usersRouter };

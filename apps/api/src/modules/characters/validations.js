@@ -1,5 +1,7 @@
 import * as z from 'zod';
 
+const coordinate = z.coerce.number();
+
 const split = (value) => value.split(',');
 
 export const query = z.object({
@@ -7,5 +9,5 @@ export const query = z.object({
 	position: z
 		.string()
 		.transform(split)
-		.pipe(z.tuple([z.coerce.number(), z.coerce.number()])),
+		.pipe(z.tuple([coordinate, coordinate])),
 });

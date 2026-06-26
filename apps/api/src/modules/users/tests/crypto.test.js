@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { compare, hash } from '#root/utils/auth.js';
+import { compare, hash } from '#root/modules/users/crypto.js';
 
 describe('compare', () => {
 	it('confirms that the password mismatches the hash', async () => {

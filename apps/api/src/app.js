@@ -3,8 +3,8 @@ import express from 'express';
 
 import { config } from './config.js';
 import { pino } from './lib/logger.js';
-import { handleError, handleNotFoundError } from './middleware/errors.js';
-import { api } from './routes.js';
+import { apiRouter } from './modules/index.js';
+import { handleError, handleNotFoundError } from './shared/errors/middleware.js';
 
 export const app = express();
 
@@ -15,7 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(cors({ origin: config.CLIENT_URL }));
 
-app.use('/api/v1', api);
+app.use('/api/v1', apiRouter);
 
 app.use(handleNotFoundError);
 app.use(handleError);

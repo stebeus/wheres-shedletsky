@@ -3,10 +3,8 @@
 	"linter": {
 		"rules": {
 			"correctness": {
+				"noProcessGlobal": "error",
 				"noUnusedFunctionParameters": "off"
-			},
-			"style": {
-				"noProcessEnv": "error"
 			},
 			"suspicious": {
 				"noConsole": "error"

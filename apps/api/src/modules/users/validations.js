@@ -2,16 +2,22 @@ import * as z from 'zod';
 
 import { users } from '#root/db/schema.js';
 
-import { isUsernameAvailable } from './services.js';
+import { authenticate, isUsernameAvailable } from './services.js';
 
 const { username } = users;
+
+const bestTimeInMs = z.coerce.number().int().positive();
 const alphanumericRegex = /\w/g;
 
-export const signinBody = z.looseObject({
-	bestTimeInMs: z.coerce.number(),
-});
+export const signInSchema = z
+	.object({
+		username: z.string(),
+		password: z.string(),
+		bestTimeInMs,
+	})
+	.refine(authenticate, 'Invalid credentials');
 
-export const signupBody = z.object({
+export const signUpSchema = z.object({
 	username: z
 		.string()
 		.min(1, 'Username is required')
@@ -22,5 +28,5 @@ export const signupBody = z.object({
 		.string()
 		.min(4, 'Password must be at least 4 characters long')
 		.max(100, 'Password cannot be longer than 100 characters'),
-	...signinBody.shape,
+	bestTimeInMs,
 });
