@@ -16,7 +16,7 @@ describe('GET /users', () => {
 	});
 });
 
-describe('GET /users/sign-in', () => {
+describe('POST /users/sign-in', () => {
 	it.for`
 		case            | data
 		${'empty'}      | ${null}
@@ -37,7 +37,7 @@ describe('GET /users/sign-in', () => {
 	});
 });
 
-describe('GET /users/sign-up', () => {
+describe('POST /users/sign-up', () => {
 	it.for`
 		case            | data
 		${'empty'}      | ${null}
