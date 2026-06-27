@@ -3,8 +3,8 @@ import express from 'express';
 
 import { config } from './config.js';
 import { pino } from './lib/logger.js';
-import { apiRouter } from './modules/index.js';
-import { handleError, handleNotFoundError } from './shared/errors/middleware.js';
+import { handleError, handleNotFoundError } from './middleware/errors.js';
+import { apiRouter } from './routes.js';
 
 export const app = express();
 

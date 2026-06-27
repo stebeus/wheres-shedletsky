@@ -1,4 +1,4 @@
-import { HttpError, isHttpError, notFoundError } from './helpers.js';
+import { HttpError, isHttpError, notFoundError } from '#root/utils/errors.js';
 
 export const handleNotFoundError = (req, res, next) => next(notFoundError);
 
